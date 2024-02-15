@@ -1,0 +1,34 @@
+<div class="container-fluid p-0 d-flex h-100">
+    <div id="bdSidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-success text-white offcanvas-md offcanvas-start">
+        <a routerLink="users" class="navbar-brand">PowerUp – Digital Career</a>
+        <hr>
+        <ul class="mynav nav nav-pills flex-column mb-auto">
+            <li class="nav-item mb-1">
+                <a routerLinkActive="active" routerLink="users/all-users">
+                    <i class="fa fa-users"></i>
+                    Users
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="bg-light flex-fill">
+        <div class="p-2 d-md-none d-flex text-white bg-success">
+            <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                <i class="fa fa-bars"></i>
+            </a>
+            <span class="ms-3">PowerUp – Digital Career</span>
+        </div>
+        <div class="p-4 content">
+            <div class="text-right">
+                <a routerLink="login" class="no-decoration">Log out</a>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

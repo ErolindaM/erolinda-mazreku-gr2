@@ -1,0 +1,46 @@
+<div class="create-user-form">
+    <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" formControlName="firstname" required>
+            
+            <div *ngIf="createUserForm.get('firstname').touched && createUserForm.get('firstname').errors">
+                <small class="text-danger" *ngIf="createUserForm.get('firstname').errors['required']">
+                    First name is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" formControlName="lastname" required>
+            <div *ngIf="createUserForm.get('lastname').touched && createUserForm.get('lastname').errors">
+                <small class="text-danger" *ngIf="createUserForm.get('lastname').errors['required']">
+                    Last name is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" formControlName="title" required>
+            <div *ngIf="createUserForm.get('title').touched && createUserForm.get('title').errors">
+                <small class="text-danger" *ngIf="createUserForm.get('title').errors['required']">
+                    Title is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" formControlName="status" required>
+                <option value="">Select Status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            <div *ngIf="createUserForm.get('status').touched && createUserForm.get('status').errors">
+                <small class="text-danger" *ngIf="createUserForm.get('status').errors['required']">
+                    Status is required.
+                </small>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!createUserForm.valid">Create User</button>
+    </form>
+</div>

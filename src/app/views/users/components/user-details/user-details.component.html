@@ -1,0 +1,31 @@
+<div class="conatiner-fluid">
+    <div class="header">
+        <h1>{{userDetails?.firstname+' '+userDetails?.lastname+' details'}}</h1>
+    </div>
+    <div class="user-details">
+        <ng-container *ngIf="userDetails.firstname">
+            <div>
+                <label for="firstname"><b>Firstname:</b></label>
+                <p>{{userDetails?.firstname}}</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="userDetails.lastname">
+            <div>
+                <label for="lastname"><b>Lastname:</b></label>
+                <p>{{userDetails?.lastname}}</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="userDetails.title">
+            <div>
+                <label for="title"><b>Title:</b></label>
+                <p>{{userDetails?.title}}</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="userDetails.status">
+            <div>
+                <label for="status"><b>Status:</b></label>
+                <p>{{userDetails?.status}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>
