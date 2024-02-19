@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 flex-between">
+            <div>
+                <h1>All Tasks</h1>
+            </div>
+            <button [routerLink]="['/tasks/create-task']" class="create-new-button m-0">Create Task</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <table class="table align-middle mb-0 bg-white">
+            <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of taskList">
+                    <td>
+                        {{item.title}}
+                    </td>
+                    <td class="text-right">
+                      <a [routerLink]="'/tasks/edit-task/' + item.id" [queryParams]="{ taskId: item.id}">
+                         <i class="fa fa-pencil green p-2 pointer"></i>
+                      </a>
+                      <a [routerLink]="'/tasks/task-details/' + item.id" [queryParams]="{ taskId: item.id}">
+                        <i class="fa fa-eye green p-2 pointer"></i>
+                     </a>
+                     <i class="fa fa-trash text-danger p-2 pointer" (click)="deleteTask(item)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>   
+    </div>
+</div>
+
+<div *ngIf="deleteTaskModal" class="delete-modal">
+    <div class="delete-modal-header">
+     <h3 class="delete-modal-header-title" >Delete Task</h3>
+    </div>
+    <div class="delete-modal-content">
+      <h4>  Are you sure you want to proceed with the deletion of <b> {{clickedTaskData.title}}</b>?</h4> 
+    </div>
+    <div class="delete-modal-footer">
+        <button type="button" class="delete-button bg-danger"  (click)="deleteTaskFromTable(clickedTaskData.id)">Delete</button>
+        <button type="button" class="create-new-button" (click)="closeDeleteTaskModal()">Cancel</button>
+    </div>
+</div>

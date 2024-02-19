@@ -1,0 +1,13 @@
+<div class="conatiner-fluid">
+    <div class="header">
+        <h1>{{taskDetails?.title+' details'}}</h1>
+    </div>
+    <div class="task-details">
+        <ng-container *ngIf="taskDetails.title">
+            <div>
+                <label for="title"><b>Title:</b></label>
+                <p>{{taskDetails?.title}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

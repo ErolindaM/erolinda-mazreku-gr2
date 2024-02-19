@@ -1,0 +1,16 @@
+<div class="create-task-form">
+    <form [formGroup]="createTaskForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" formControlName="title" required>
+            
+            <div *ngIf="createTaskForm.get('title').touched && createTaskForm.get('title').errors">
+                <small class="text-danger" *ngIf="createTaskForm.get('title').errors['required']">
+                    Title is required.
+                </small>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!createTaskForm.valid">Create Task</button>
+    </form>
+</div>
